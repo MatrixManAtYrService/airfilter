@@ -1,11 +1,13 @@
 import click
 from pprint import pformat, pprint
-from airframe._version import get_versions
+from airfilter._version import get_versions
+from airfilter.attach import kube_attach
 
 
 @click.command()
-def cli():
-    print("cli")
+@click.argument("namespace")
+def cli(namespace):
+    kube_attach(namespace)
 
 
 @click.command()
